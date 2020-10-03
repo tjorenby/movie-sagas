@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import './Home.scss'
 import Slider from '../Slider/Slider';
 
+
 class Home extends Component {
+
+
+
+
     // Renders the entire app on the DOM
     render() {
         return (

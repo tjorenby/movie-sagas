@@ -1,34 +1,45 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+
 import './Slider.scss'
 import MovieComp from '../MovieComp/MovieComp';
-import { RiArrowDropRightLine } from "react-icons/md";
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 
-function Slider() {
+const mapStateToProps = reduxState => ({
+    movies: reduxState.movies
+});
 
-    let sliderArray = [<MovieComp src={`images/avatar.jpeg`} />, <MovieComp src={`images/gone-girl.jpg`} />, <MovieComp src={`images/the-martian.jpg`} />, <MovieComp src={`images/star-wars.jpg`} />, <MovieComp src={`images/captain-marvel.jpg`} />];
+// ***THIS IS A FUNCTION COMPONENT***
+function Slider(props) {
+
+
+    console.log('movies from reduxState:', props.movies);
+
+    // These functions are used for creating the carousel-effect for each component
     const [x, setX] = useState(0)
     const goLeft = () => {
         console.log(x);
-        x === 0 ? setX(-100 * (sliderArray.length - 1)) : setX(x + 100);
+        x === 0 ? setX(-100 * (props.movies.length - 1)) : setX(x + 100);
 
     };
     const goRight = () => {
         console.log(x);
 
-        x === -100 * (sliderArray.length - 1) ? setX(0) : setX(x - 100);
+        x === -100 * (props.movies.length - 1) ? setX(0) : setX(x - 100);
     };
 
 
     return (
         <div className="slider">
             {
-                sliderArray.map((item, i) => {
+                props.movies.map((item, i) => {
                     return (
                         <div key={i} className="slide" style={{
                             transform: `translateX(${x}%)`
                         }}>
-                            {item}
+                            <MovieComp
+
+                            />
                         </div>
                     )
                 })
@@ -50,4 +61,8 @@ function Slider() {
     );
 }
 
-export default Slider;
+export default connect(mapStateToProps)(Slider);
+
+
+
+// let sliderArray = [<MovieComp src={`images/avatar.jpeg`} />, <MovieComp src={`images/gone-girl.jpg`} />, <MovieComp src={`images/the-martian.jpg`} />, <MovieComp src={`images/star-wars.jpg`} />, <MovieComp src={`images/captain-marvel.jpg`} />];

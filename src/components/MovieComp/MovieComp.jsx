@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
-import Modal from 'styled-react-modal';
 import { StyledModal } from '../Modal/Modal'
-
 import './MovieComp.scss';
 
-
+// ***THIS IS A FUNCTION COMPONENT***
 function MovieComp({ src }) {
 
+    //Functions for Modal responsiveness
     const [isModalOpen, setModalOpen] = useState(false);
-
-    const hideModal = () => {
-        setModalOpen(false);
-    }
+    const hideModal = () => { setModalOpen(false); }
 
     return (
 
@@ -29,7 +25,6 @@ function MovieComp({ src }) {
                     <div className="text">
                         CLICK FOR DETAILS
                     </div>
-
                 </div>
             </div>
             <StyledModal
@@ -44,7 +39,6 @@ function MovieComp({ src }) {
 
     )
 }
-
 
 export default MovieComp;
 
