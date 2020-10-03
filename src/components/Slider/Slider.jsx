@@ -38,7 +38,10 @@ function Slider(props) {
                             transform: `translateX(${x}%)`
                         }}>
                             <MovieComp
-
+                                src={props.movies[i].poster}
+                                description={props.movies[i].description}
+                                title={props.movies[i].title}
+                                id={props.movies[i].id}
                             />
                         </div>
                     )
