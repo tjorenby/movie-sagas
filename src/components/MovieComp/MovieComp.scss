@@ -1,5 +1,60 @@
-.desc-modal{
-    height: 40px;
-    width: 40px;
-    background-color: lightseagreen;
-}
+
+.container {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    width: 300px;
+    height: 484px; 
+    /* margin: 3px; */
+    // border-style: groove;
+  }
+
+ .image{
+    width: 300px;
+    height: 484px; 
+    display: inline-block; 
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+} 
+
+
+  .overlay {
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 300px;
+  height: 484px; 
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+
+  }
+
+  .poster-container:hover .overlay {
+    opacity: .9;
+
+  }
+
+  .text {
+    color: hotpink;
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    bottom: 50%;
+    right: 50%; 
+    width: 100px; 
+    padding-left:25px;
+    padding-right:25px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+

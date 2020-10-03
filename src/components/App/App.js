@@ -12,7 +12,7 @@ class App extends Component {
       <ModalProvider>
         <div className="App">
           <Router>
-            {/* <AppHeader /> */}
+            <AppHeader />
             <Home />
 
           </Router>
