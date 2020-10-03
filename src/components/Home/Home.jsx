@@ -6,8 +6,10 @@ class Home extends Component {
     // Renders the entire app on the DOM
     render() {
         return (
-            <div>
-                <h1>HOME COMPONENT</h1>
+            <div className="card">
+                <div>
+                    <h1>Movie Gallery</h1>
+                </div>
 
             </div>
         );

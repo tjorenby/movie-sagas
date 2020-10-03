@@ -1,8 +1,8 @@
 -- TO DO --
 
 [] DATABASE
-    [] Create a database named `saga_movies_weekend`
-    [] Run the queries from `database.sql` on the `saga_movies_weekend` database.
+    [X] Create a database named `saga_movies_weekend`
+    [X] Run the queries from `database.sql` on the `saga_movies_weekend` database.
     [] A movie could have many genres. You will need to create the junction table between the `movies` and `genres` tables! It will be helpful to have some data for that junction table added.
 
 
