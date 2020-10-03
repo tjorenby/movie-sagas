@@ -10,10 +10,10 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <AppHeader />
+          {/* <AppHeader /> */}
           <Home />
+
         </Router>
-        <p>Empty Page</p>
       </div>
     );
   }
