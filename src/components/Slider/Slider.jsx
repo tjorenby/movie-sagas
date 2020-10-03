@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './Slider.scss'
-import PosterComp from '../PosterComp/PosterComp';
+import MovieComp from '../MovieComp/MovieComp';
 import { RiArrowDropRightLine } from "react-icons/md";
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 
 function Slider() {
 
-    let sliderArray = [<PosterComp src={`images/avatar.jpeg`} />, <PosterComp src={`images/gone-girl.jpg`} />, <PosterComp src={`images/the-martian.jpg`} />, <PosterComp src={`images/star-wars.jpg`} />, <PosterComp src={`images/captain-marvel.jpg`} />];
+    let sliderArray = [<MovieComp src={`images/avatar.jpeg`} />, <MovieComp src={`images/gone-girl.jpg`} />, <MovieComp src={`images/the-martian.jpg`} />, <MovieComp src={`images/star-wars.jpg`} />, <MovieComp src={`images/captain-marvel.jpg`} />];
     const [x, setX] = useState(0)
     const goLeft = () => {
         console.log(x);
