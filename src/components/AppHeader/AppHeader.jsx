@@ -11,7 +11,7 @@ class AppHeader extends Component {
             <Router>
                 <div className="header">
                     <div>
-                        <h1>Movie Database</h1>
+                        <h1>Mockbuster Video</h1>
                     </div>
                 </div>
             </Router>

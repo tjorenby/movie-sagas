@@ -42,7 +42,11 @@ router.post('/', (req, res) => {
 //GET route to grab movies from db
 
 router.get('/', (req, res) => {
-  const getMoviesQuery = `SELECT * FROM "movies";`;
+  const getMoviesQuery = `SELECT 
+	"movies".id, "movies".description, "movies".poster, "movies".title, array_agg("genres".name) as "genres" FROM "genres"
+	JOIN "movies_genres" ON "movies_genres".genre_id = "genres".id
+	JOIN "movies" ON "movies_genres".movie_id = "movies".id
+	GROUP BY "movies".id;`;
 
   pool.query(getMoviesQuery)
     .then((result) => { res.send(result.rows); })
@@ -52,7 +56,5 @@ router.get('/', (req, res) => {
     });
 });
 
-
-router.get
 
 module.exports = router;

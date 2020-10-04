@@ -5,6 +5,7 @@ import './App.scss';
 import { ModalProvider } from 'styled-react-modal'
 import Home from '../Home/Home';
 import AppHeader from '../AppHeader/AppHeader';
+import AddMovie from '../AddMovie/AddMovie';
 
 class App extends Component {
 
@@ -34,7 +35,8 @@ class App extends Component {
         <div className="App">
           <Router>
             <AppHeader />
-            <Home />
+            {/* <Home /> */}
+            <AddMovie />
 
           </Router>
         </div>

@@ -32,9 +32,27 @@ function* fetchMoviesSaga(action) {
     })
 }
 
+function* fetchGenresSaga(action) {
+    console.log('in fetchGenresSaga with:', action);
+
+    let response = yield Axios({
+        method: 'GET',
+        url: '/api/genre'
+    });
+
+    console.log('back from GET with:', response.data);
+
+    yield put({
+        type: 'SET_GENRES',
+        payload: response.data
+    })
+}
+
+
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMoviesSaga);
+    yield takeEvery('FETCH_GENRES', fetchGenresSaga);
 }
 
 // Create sagaMiddleware

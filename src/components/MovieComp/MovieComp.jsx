@@ -11,6 +11,7 @@ function MovieComp(props) {
     const [isModalOpen, setModalOpen] = useState(false);
     const hideModal = () => { setModalOpen(false); }
     console.log('props are:', props);
+    console.log('props genres are:', props.genres);
 
     return (
 
@@ -36,7 +37,15 @@ function MovieComp(props) {
             >
                 <h2>{props.title}</h2>
                 <p>{props.description}</p>
-                <p>Sci-fi | Drama | Fiction</p>
+                <div className="genre-display">
+                    {props.genres.map(item => {
+                        return (
+                            <div className="genre">
+                                <p> | {item} | </p>
+                            </div>
+                        )
+                    })}
+                </div>
             </StyledModal>
         </div >
 
