@@ -10,23 +10,23 @@ CLIENT SIDE
 
     --COMPONENTS--
 
-        []HOME
-            []Display All Movies from db (.map) (Carousel style)
+        [X]HOME
+            [X]Display All Movies from db (.map) (Carousel style)
 
-            [] onClick should display movie information (Image pop-out w/ a close button)
-                []Details need to show ALL GENRES
-                [] BUTTON to close the pop-out
+            [X] onClick should display movie information (Image pop-out w/ a close button)
+                [X]Details need to show ALL GENRES
+                [X] BUTTON to close the pop-out
 
-        [] DETAILS COMPONENT
-            [] Replaced with an image pop-out card  
+        [X] DETAILS COMPONENT
+            [X] Replaced with an image pop-out card  
 
 
-        [] ADD MOVIE COMPONENT
-            []Input Fields
-                []Movie Title
-                []Movie Poster (image URL)
-                [] Text Area (movie description)
-                [] Dropdown Menu for Genres
+        [X] ADD MOVIE COMPONENT
+            [X]Input Fields
+                [X]Movie Title
+                [X]Movie Poster (image URL)
+                [X] Text Area (movie description)
+                [X] Dropdown Menu for Genres
 
             [] BUTTONS
                 []Cancel Button - Brings user to HOME component ('/')

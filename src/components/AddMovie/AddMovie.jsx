@@ -10,11 +10,13 @@ const mapStateToProps = reduxState => ({
     genres: reduxState.genres
 });
 
+// Global variable used for rendering the name of genre on dom. 
 let genre = '';
 
 // ***THIS IS A FUNCTION COMPONENT***
 function AddMovie(props) {
 
+    // Using Formik (form library) to build this form function. It gathers the "onChange" values, dispatches the payload, and resets the form fields onSubmit
     const formik = useFormik({
         initialValues: {
             title: '',
@@ -23,41 +25,25 @@ function AddMovie(props) {
             genre_id: ''
         },
 
-        onSubmit: values => {
+        onSubmit: (values, onSubmitProps) => {
             console.log('Form data is:', values);
-
             props.dispatch({
                 type: 'ADD_MOVIE',
                 payload: values
             })
 
+            onSubmitProps.resetForm();
         }
-
     })
 
-    // console.log('Form values:', formik.values);
 
-
-
-
-
-
-
-
-    // console.log('Genres reduxState:', props.genres);
 
     //Functions for Modal responsiveness
     const [isModalOpen, setModalOpen] = useState(false);
     const hideModal = () => { setModalOpen(false); }
 
 
-    // Functions for handling input fields
-    const [value, setValue] = React.useState('Controlled');
-    // NEED TO CONFIGURE THIS
-    const handleChange = (event) => {
-        setValue(event.target.value);
-    };
-
+    // ======
     // For handling genre drop-down menu
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -69,6 +55,9 @@ function AddMovie(props) {
         setAnchorEl(null);
     };
 
+    // =======
+
+    // sends the genre_id to Formik function and assigns the genre name to the global "genre" variable. It also triggers the "handleClose" function which closes the menu. 
     const setGenre = (genreId, genreName) => {
         formik.values.genre_id = genreId;
         genre = genreName;

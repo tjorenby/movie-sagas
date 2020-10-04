@@ -38,6 +38,7 @@ class App extends Component {
             <Home />
             <AddMovie />
 
+
           </Router>
         </div>
       </ModalProvider>
