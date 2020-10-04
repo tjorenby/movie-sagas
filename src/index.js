@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
-import Axios from 'axios';
+import axios from 'axios';
 // import { put } from '../server/routes/movie.router';
 
 // ===Saga Functions===
@@ -19,7 +19,7 @@ import Axios from 'axios';
 function* fetchMoviesSaga(action) {
     console.log('in fetchMoviesSaga with:', action);
 
-    let response = yield Axios({
+    let response = yield axios({
         method: 'GET',
         url: '/api/movie'
     });
@@ -35,7 +35,7 @@ function* fetchMoviesSaga(action) {
 function* fetchGenresSaga(action) {
     console.log('in fetchGenresSaga with:', action);
 
-    let response = yield Axios({
+    let response = yield axios({
         method: 'GET',
         url: '/api/genre'
     });
@@ -48,11 +48,27 @@ function* fetchGenresSaga(action) {
     })
 }
 
+function* addMovieSaga(action) {
+    console.log('Adding Movie:', action.payload);
+
+    yield axios({
+        method: 'POST',
+        url: '/api/movie',
+        data: action.payload
+    });
+
+
+    yield put({
+        type: 'FETCH_MOVIES'
+    })
+}
+
 
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchMoviesSaga);
     yield takeEvery('FETCH_GENRES', fetchGenresSaga);
+    yield takeEvery('ADD_MOVIE', addMovieSaga);
 }
 
 // Create sagaMiddleware

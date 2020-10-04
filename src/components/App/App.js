@@ -35,7 +35,7 @@ class App extends Component {
         <div className="App">
           <Router>
             <AppHeader />
-            {/* <Home /> */}
+            <Home />
             <AddMovie />
 
           </Router>
