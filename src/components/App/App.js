@@ -10,7 +10,6 @@ import Slider from '../Slider/Slider';
 
 class App extends Component {
 
-
   componentDidMount() {
     this.getMovies();
     this.getGenres();

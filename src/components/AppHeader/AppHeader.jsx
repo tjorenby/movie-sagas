@@ -7,7 +7,7 @@ class AppHeader extends Component {
     render() {
         return (
             <div className="header">
-                <h1>Mockbuster Video</h1>
+                {/* <h3>Mockbuster Video</h3> */}
             </div>
         );
     }

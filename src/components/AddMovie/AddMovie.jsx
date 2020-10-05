@@ -5,6 +5,7 @@ import './AddMovie.scss';
 import TextField from '@material-ui/core/TextField';
 import { Button, Menu, MenuItem } from '@material-ui/core';
 import { useFormik } from 'formik'
+import swal from '@sweetalert/with-react'
 
 const mapStateToProps = reduxState => ({
     genres: reduxState.genres
@@ -35,6 +36,27 @@ function AddMovie(props) {
             onSubmitProps.resetForm();
         }
     })
+
+    function alertOnSubmit() {
+        swal(
+            <div>
+                <h3>Success! click "All Titles" to keep browsing</h3>
+                <p>
+                    <Router>
+                        <Link to='/' >
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                size="small"
+                            >
+                                All Titles
+                    </Button>
+                        </Link>
+                    </Router>
+                </p>
+            </div>
+        )
+    }
 
 
     // ======
@@ -135,7 +157,6 @@ function AddMovie(props) {
                                 {props.genres.map(genre =>
                                     <MenuItem
                                         onClick={() => setGenre(genre.id, genre.name)}
-                                    // value={genre.id}
                                     >{genre.name}
                                     </MenuItem>
                                 )}
@@ -146,6 +167,7 @@ function AddMovie(props) {
                                 variant="contained"
                                 type="submit"
                                 color="secondary"
+                                onClick={() => alertOnSubmit()}
                             >
                                 SAVE
                             </Button>
