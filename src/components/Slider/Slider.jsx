@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import './Slider.scss'
 import MovieComp from '../MovieComp/MovieComp';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
-import Home from '../Home/Home';
-import AddMovie from '../AddMovie/AddMovie';
 
 const mapStateToProps = reduxState => ({
     movies: reduxState.movies
@@ -12,7 +10,6 @@ const mapStateToProps = reduxState => ({
 
 // ***THIS IS A FUNCTION COMPONENT*** //
 function Slider(props) {
-
 
     console.log('movies from reduxState:', props.movies);
 
@@ -28,10 +25,9 @@ function Slider(props) {
         x === -100 * (props.movies.length - 1) ? setX(0) : setX(x - 100);
     };
 
-
+    // Mapping through movie props and passing data down to the child movie component. 
     return (
         <>
-
             <div className="slider">
                 {
                     props.movies.map((item, i) => {
@@ -64,7 +60,6 @@ function Slider(props) {
                     <FaChevronRight size="25%" />
                 </button>
             </div>
-            {/* <AddMovie /> */}
         </>
     );
 }

@@ -47,7 +47,8 @@ router.get('/', (req, res) => {
 	"movies".id, "movies".description, "movies".poster, "movies".title, array_agg("genres".name) as "genres" FROM "genres"
 	JOIN "movies_genres" ON "movies_genres".genre_id = "genres".id
 	JOIN "movies" ON "movies_genres".movie_id = "movies".id
-	GROUP BY "movies".id;`;
+  GROUP BY "movies".id 
+  ORDER BY "movies".id DESC;`;
 
   pool.query(getMoviesQuery)
     .then((result) => { res.send(result.rows); })

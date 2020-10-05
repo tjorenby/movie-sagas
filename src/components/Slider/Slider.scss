@@ -2,23 +2,20 @@
 
 
 .slider{
-    width: 70vw;
+    width: 100vw;
     height: 80vh;
     margin: auto;
     position: relative;
     box-sizing: border-box;
-    margin-top: 40px;
     padding: 0;
     display: flex;
     align-items: center;
     overflow: hidden;
-    background: $thm-raisinBlack;
-    
+    background: rgba(41, 40, 40, 0.0);
 }
 
 .slide {
     min-width: 100%;
-    height: 80%;
     transition: .5s;
 
 }
@@ -27,18 +24,17 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 30%;
+    width: 20%;
     height: 20%;
     background: none;
+    border-radius: 1rem;
     border: none;
     outline: none;
     transition: 0.5s;
     &:hover{
-        background: $thm-blackOlive;
+        background: rgba(255,255,255,0.5);
         cursor: pointer;
     }
-
-
 }
 
 #goLeft{

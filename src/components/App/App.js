@@ -16,13 +16,14 @@ class App extends Component {
     this.getGenres();
   }
 
-  //Fetching from db
+  //Fetching Movies from db
   getMovies = () => {
     this.props.dispatch({
       type: 'FETCH_MOVIES'
     })
   }
 
+  //Fetching Genres from db
   getGenres = () => {
     this.props.dispatch({
       type: 'FETCH_GENRES'
@@ -35,9 +36,8 @@ class App extends Component {
       <ModalProvider>
         <div className="App">
           <Router>
-            <AppHeader />
-            <Home />
 
+            <AppHeader />
             <Route path='/' exact>
               <Slider />
             </Route>
@@ -48,11 +48,7 @@ class App extends Component {
             >
               <AddMovie />
             </Route>
-
-
-
-
-
+            <Home />
           </Router>
         </div>
       </ModalProvider>

@@ -1,17 +1,19 @@
 .slider{
     width: 100vw;
-    height: 80vh;
+    height: 85vh;
     position: relative;
     box-sizing: border-box;
-    margin-top: 40px;
+    // margin-top: 40px;
     padding: 0;
     display: flex;
     align-items: center;
     overflow: hidden;
     background: rgba(243, 243, 243, 0.25);
+    background-size: cover;
     
 }
 
 $thm-onyx: rgb(57,57,57);
-$thm-blackOlive: rgba(61, 61, 61, 0.192);
+$thm-blackOlive: rgba(61, 61, 61, 0.492);
 $thm-raisinBlack: rgb(38, 38, 38);
+$thm-eerie_black: rgb(30,30,30);

@@ -1,3 +1,4 @@
+@import'./src/styles/_themes.scss';
 
 .container {
     position: relative;
@@ -30,7 +31,7 @@
   height: 484px; 
   opacity: 0;
   transition: .5s ease;
-  background-color: #008CBA;
+  background-color: #bbdae4c9;
   cursor: pointer;
 
   }
@@ -41,8 +42,8 @@
   }
 
   .text {
-    color: hotpink;
-    font-size: 12px;
+    color: $thm-onyx;
+    font-size: 22px;
     position: absolute;
     top: 50%;
     left: 50%; 
@@ -69,5 +70,6 @@
   .genre {
     display: inline-block;
     font-style: italic;
+    font-weight: bolder;
   }
 

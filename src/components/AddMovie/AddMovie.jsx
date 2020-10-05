@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { StyledModal2 } from '../Modal/Modal'
 import { HashRouter as Router, Link } from 'react-router-dom';
 import './AddMovie.scss';
 import TextField from '@material-ui/core/TextField';
-import { FaWindowClose } from 'react-icons/fa';
 import { Button, Menu, MenuItem } from '@material-ui/core';
 import { useFormik } from 'formik'
 
@@ -39,12 +37,6 @@ function AddMovie(props) {
     })
 
 
-
-    //Functions for Modal responsiveness
-    const [isModalOpen, setModalOpen] = useState(true);
-    const hideModal = () => { setModalOpen(false); }
-
-
     // ======
     // For handling genre drop-down menu
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -66,118 +58,114 @@ function AddMovie(props) {
         console.log('genre Id is:', genreId);
         console.log('genre is:', genreName);
         handleClose();
-        // return category;
     }
-
-    const routes = ['/', '/AddMovie'];
 
     return (
         <Router>
             <div className="movie-card" >
-                {/* <div>
-                    <Button onClick={() => setModalOpen(!isModalOpen)}
-                    >
-                        Click Me </Button>
-                </div> */}
-
-                <StyledModal2
-                    show={isModalOpen}
-                    handleClose={hideModal}
-                >
-                    <h3>Add To Your Collection!</h3>
-                    <div className="Form">
-                        <form onSubmit={formik.handleSubmit}>
+                <div className="form">
+                    <form onSubmit={formik.handleSubmit}>
+                        <TextField
+                            InputProps={{ className: "text_color" }}
+                            InputLabelProps={{ className: "text_color" }}
+                            InputPlaceholderProps={{ className: "text_color" }}
+                            id="standard-textarea"
+                            name="title"
+                            label="Title"
+                            placeholder="Title"
+                            onChange={formik.handleChange}
+                            value={formik.values.title}
+                        />
+                        <TextField
+                            InputProps={{ className: "text_color" }}
+                            InputLabelProps={{ className: "text_color" }}
+                            InputPlaceholderProps={{ className: "text_color" }}
+                            id="standard-textarea"
+                            name="description"
+                            label="Description"
+                            placeholder="Description"
+                            multiline
+                            fullWidth
+                            onChange={formik.handleChange}
+                            value={formik.values.description}
+                        />
+                        <TextField
+                            InputProps={{ className: "text_color" }}
+                            InputLabelProps={{ className: "text_color" }}
+                            InputPlaceholderProps={{ className: "text_color" }}
+                            id="standard-textarea"
+                            name="poster"
+                            label="Poster URL"
+                            placeholder="Poster URL"
+                            fullWidth
+                            onChange={formik.handleChange}
+                            value={formik.values.poster}
+                        />
+                        <div className="genre-field">
                             <TextField
+                                InputProps={{ className: "text_color" }}
+                                InputLabelProps={{ className: "text_color" }}
+                                InputPlaceholderProps={{ className: "text_color" }}
                                 id="standard-textarea"
-                                name="title"
-                                label="Title"
-                                placeholder="Title"
-                                onChange={formik.handleChange}
-                                value={formik.values.title}
+                                name={genre}
+                                label="Genre"
+                                placeholder={genre}
+                                value={genre}
                             />
-                            <div className="genre-field">
-                                <TextField
-                                    id="standard-textarea"
-                                    name={genre}
-                                    label="Genre"
-                                    placeholder={genre}
-                                    value={genre}
-                                />
-                            </div>
-                            <div className="genre-btn">
-                                <Button
-                                    aria-controls="simple-menu"
-                                    aria-haspopup="true"
-                                    onClick={handleClick}
-                                    size="small"
-                                    className="genre-btn"
-
-                                >
-                                    Set Genre
-                                </Button>
-
-                                <Menu
-                                    id="simple-menu"
-                                    anchorEl={anchorEl}
-                                    keepMounted
-                                    open={Boolean(anchorEl)}
-                                    onClose={handleClose}
-                                >
-                                    {props.genres.map(genre =>
-                                        <MenuItem
-                                            onClick={() => setGenre(genre.id, genre.name)}
-                                        // value={genre.id}
-                                        >{genre.name}
-                                        </MenuItem>
-                                    )}
-                                </Menu>
-                            </div>
-
-                            <TextField
-                                id="standard-textarea"
-                                name="description"
-                                label="Description"
-                                placeholder="Description"
-                                multiline
-                                fullWidth
-                                onChange={formik.handleChange}
-                                value={formik.values.description}
-                            />
-                            <TextField
-                                id="standard-textarea"
-                                name="poster"
-                                label="Poster URL"
-                                placeholder="Poster URL"
-                                fullWidth
-                                onChange={formik.handleChange}
-                                value={formik.values.poster}
-                            />
-
-
-                            <div>
-                                <Button type="submit">SAVE</Button>
-                            </div>
-                        </form>
-                    </div>
-                    <Link to='/'>
-                        <div>
-
-                            <Button>
-
-                                {/* <FaWindowClose size={30}  /> */}
-                                CANCEL
-
-                            </Button>
-
                         </div>
+                        <div className="genre-btn">
+                            <Button
+                                variant="contained"
+                                aria-controls="simple-menu"
+                                aria-haspopup="true"
+                                onClick={handleClick}
+                                size="small"
+                                className="genre-btn"
+                                color="secondary"
+                            >
+                                SET GENRE
+                            </Button>
+                            <Menu
+                                id="simple-menu"
+                                anchorEl={anchorEl}
+                                keepMounted
+                                open={Boolean(anchorEl)}
+                                onClose={handleClose}
+                            >
+                                {props.genres.map(genre =>
+                                    <MenuItem
+                                        onClick={() => setGenre(genre.id, genre.name)}
+                                    // value={genre.id}
+                                    >{genre.name}
+                                    </MenuItem>
+                                )}
+                            </Menu>
+                        </div>
+                        <div className="save-btn">
+                            <Button
+                                variant="contained"
+                                type="submit"
+                                color="secondary"
+                            >
+                                SAVE
+                            </Button>
+                        </div>
+                    </form>
+                </div>
+                <div className="cancel-btn">
+                    <Link to='/' >
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            size="small"
+                        >
+                            CANCEL
+                    </Button>
                     </Link>
-                </StyledModal2>
-
+                </div>
             </div >
         </Router>
     )
 }
-
-
 
 export default connect(mapStateToProps)(AddMovie);

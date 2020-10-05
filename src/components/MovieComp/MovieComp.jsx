@@ -7,15 +7,15 @@ import './MovieComp.scss';
 // ***THIS IS A FUNCTION COMPONENT***
 function MovieComp(props) {
 
-    //Functions for Modal responsiveness
+    //Functions for Modal responsiveness. The modal contains all of the movie description and genre data. 
     const [isModalOpen, setModalOpen] = useState(false);
     const hideModal = () => { setModalOpen(false); }
     console.log('props are:', props);
     console.log('props genres are:', props.genres);
 
+    // This returns the poster image as well as the modal that is displayed on poster "click". The modal renders the movie description and associated genres
     return (
-
-        <div className="container">
+        <div className="container" >
             <div
                 className="poster-container"
                 onClick={() => setModalOpen(!isModalOpen)}
@@ -41,7 +41,7 @@ function MovieComp(props) {
                     {props.genres.map(item => {
                         return (
                             <div className="genre">
-                                <p> | {item} | </p>
+                                <p> ' {item} '  </p>
                             </div>
                         )
                     })}

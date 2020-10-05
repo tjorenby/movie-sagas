@@ -1,57 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Home.scss'
 import { HashRouter as Router, Link } from 'react-router-dom';
-import AddMovie from '../AddMovie/AddMovie';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-
-
-
-const useStyles = makeStyles({
-    root: {
-        flexGrow: 1,
-    },
-});
-
+import Button from '@material-ui/core/Button';
 
 function Home() {
 
-    const classes = useStyles();
-    const [value, setValue] = React.useState(0);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
-
-    const routes = ['/', '/AddMovie'];
-
     return (
         <Router>
-            <Paper className={classes.root}>
-                <Tabs
-                    value={value}
-                    onChange={handleChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    centered
-                >
-                    <Tab
-                        label="Browse Titles"
-                        component={Link}
-                        to={routes[0]}
-                    />
-                    <Tab
-                        label="Add Title"
-                        component={Link}
-                        to={routes[1]}
-                    />
+            <div className="nav-btns">
 
-                    <Tab label="Manage Titles" />
-                </Tabs>
-            </Paper>
-        </Router>
+                <Link to='/' >
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        size="small"
+                    >BROWSE TITLES</Button>
+                </Link>
+                <Link to='/AddMovie' >
+                    <Button
+                        variant="contained"
+                        color="secondary"
+                        size="small"
+                    >ADD TITLE</Button>
+                </Link>
+
+            </div>
+
+        </Router >
     );
 }
 
