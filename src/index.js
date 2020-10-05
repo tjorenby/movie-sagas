@@ -57,7 +57,6 @@ function* addMovieSaga(action) {
         data: action.payload
     });
 
-
     yield put({
         type: 'FETCH_MOVIES'
     })

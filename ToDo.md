@@ -30,4 +30,5 @@ CLIENT SIDE
 
             [] BUTTONS
                 []Cancel Button - Brings user to HOME component ('/')
-                [] SAVE Button    
+                [X] SAVE Button 
+                    [X] Resets input fields   

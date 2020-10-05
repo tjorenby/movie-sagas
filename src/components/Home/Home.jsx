@@ -1,25 +1,44 @@
 import React, { Component } from 'react';
 import './Home.scss'
-import Slider from '../Slider/Slider';
+import AddMovie from '../AddMovie/AddMovie';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
 
-class Home extends Component {
+
+const useStyles = makeStyles({
+    root: {
+        flexGrow: 1,
+    },
+});
 
 
+function Home() {
 
+    const classes = useStyles();
+    const [value, setValue] = React.useState(0);
 
-    // Renders the entire app on the DOM
-    render() {
-        return (
-            <div className="card">
-                {/* <div>
-                    <h1>Movie Gallery</h1>
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
 
-                </div> */}
-                <Slider />
-            </div>
-        );
-    }
+    return (
+        <Paper className={classes.root}>
+            <Tabs
+                value={value}
+                onChange={handleChange}
+                indicatorColor="primary"
+                textColor="primary"
+                centered
+            >
+                <Tab label="Item One" />
+                <Tab label="Item Two" />
+                <Tab label="Item Three" />
+            </Tabs>
+        </Paper>
+    );
 }
 
 export default Home;
