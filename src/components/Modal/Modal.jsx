@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Button } from '@material-ui/core';
 
 const ModalDiv = styled.div`
     display: ${p => p.block && p.block};
@@ -33,9 +34,30 @@ export const StyledModal = (
         <ModalDiv block={show ? 'block' : 'none'}>
             <ContentDiv>
                 {children}
-                <button
+                <Button
                     onClick={handleClose}
-                >Close</button>
+                >Close</Button>
+            </ContentDiv>
+        </ModalDiv>
+    )
+}
+
+
+export const StyledModal2 = (
+    {
+        handleClose,
+        show,
+        children
+    }
+
+) => {
+    return (
+        <ModalDiv block={show ? 'block' : 'none'}>
+            <ContentDiv>
+                {children}
+                {/* <Button
+                    onClick={handleClose}
+                >Cancel</Button> */}
             </ContentDiv>
         </ModalDiv>
     )

@@ -37,7 +37,17 @@ class App extends Component {
           <Router>
             <AppHeader />
             <Home />
-            <Slider />
+
+            <Route path='/' exact>
+              <Slider />
+            </Route>
+
+            <Route
+              path='/AddMovie' exact
+              component={AddMovie}
+            >
+              <AddMovie />
+            </Route>
 
 
 

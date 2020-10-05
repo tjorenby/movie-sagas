@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Home.scss'
+import { HashRouter as Router, Link } from 'react-router-dom';
 import AddMovie from '../AddMovie/AddMovie';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -24,20 +25,33 @@ function Home() {
         setValue(newValue);
     };
 
+    const routes = ['/', '/AddMovie'];
+
     return (
-        <Paper className={classes.root}>
-            <Tabs
-                value={value}
-                onChange={handleChange}
-                indicatorColor="primary"
-                textColor="primary"
-                centered
-            >
-                <Tab label="Item One" />
-                <Tab label="Item Two" />
-                <Tab label="Item Three" />
-            </Tabs>
-        </Paper>
+        <Router>
+            <Paper className={classes.root}>
+                <Tabs
+                    value={value}
+                    onChange={handleChange}
+                    indicatorColor="primary"
+                    textColor="primary"
+                    centered
+                >
+                    <Tab
+                        label="Browse Titles"
+                        component={Link}
+                        to={routes[0]}
+                    />
+                    <Tab
+                        label="Add Title"
+                        component={Link}
+                        to={routes[1]}
+                    />
+
+                    <Tab label="Manage Titles" />
+                </Tabs>
+            </Paper>
+        </Router>
     );
 }
 

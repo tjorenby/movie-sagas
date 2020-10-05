@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import './Slider.scss'
 import MovieComp from '../MovieComp/MovieComp';
 import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
+import Home from '../Home/Home';
+import AddMovie from '../AddMovie/AddMovie';
 
 const mapStateToProps = reduxState => ({
     movies: reduxState.movies
@@ -28,38 +30,42 @@ function Slider(props) {
 
 
     return (
-        <div className="slider">
-            {
-                props.movies.map((item, i) => {
-                    return (
-                        <div key={i} className="slide" style={{
-                            transform: `translateX(${x}%)`
-                        }}>
-                            <MovieComp
-                                src={props.movies[i].poster}
-                                description={props.movies[i].description}
-                                title={props.movies[i].title}
-                                id={props.movies[i].id}
-                                genres={props.movies[i].genres}
-                            />
-                        </div>
-                    )
-                })
-            }
+        <>
 
-            <button
-                id="goLeft"
-                onClick={goLeft}
-            >
-                <FaChevronLeft size="10%" />
-            </button>
-            <button
-                id="goRight"
-                onClick={goRight}
-            >
-                <FaChevronRight size="10%" />
-            </button>
-        </div>
+            <div className="slider">
+                {
+                    props.movies.map((item, i) => {
+                        return (
+                            <div key={i} className="slide" style={{
+                                transform: `translateX(${x}%)`
+                            }}>
+                                <MovieComp
+                                    src={props.movies[i].poster}
+                                    description={props.movies[i].description}
+                                    title={props.movies[i].title}
+                                    id={props.movies[i].id}
+                                    genres={props.movies[i].genres}
+                                />
+                            </div>
+                        )
+                    })
+                }
+
+                <button
+                    id="goLeft"
+                    onClick={goLeft}
+                >
+                    <FaChevronLeft size="25%" />
+                </button>
+                <button
+                    id="goRight"
+                    onClick={goRight}
+                >
+                    <FaChevronRight size="25%" />
+                </button>
+            </div>
+            {/* <AddMovie /> */}
+        </>
     );
 }
 
