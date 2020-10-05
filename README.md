@@ -43,4 +43,4 @@ Browse a library of classic movies and add your favorites!
 
 ## Demo
 
-![demo](./media/demo_feedback_loop.gif)
+![demo](./media/movie_gallery_demo.gif)
